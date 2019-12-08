@@ -8,4 +8,14 @@ class GymsController < ApplicationController
         render json: gyms
     end
 
+    def create
+        l = Location.find_by_city(params[:gym][:city_name])
+        g = Gym.create(name: params[:gym][:name], city_name: params[:gym][:city_name], location_id: l.id)
+        # render json: g
+        # binding.pry
+    end
+
+    def show
+       
+    end
 end
